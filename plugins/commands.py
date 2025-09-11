@@ -49,7 +49,7 @@ async def start(client, message):
     if len(message.command) != 2:
         if PREMIUM_AND_REFERAL_MODE == True:
             buttons = [[
-                InlineKeyboardButton('• Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ •', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
                 InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ ♞', url=GRP_LNK)
             ],[
