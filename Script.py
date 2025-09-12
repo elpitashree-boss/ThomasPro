@@ -277,7 +277,7 @@ Nᴀᴍᴇ - {}"""
     GFILTER_TXT = """
 <b>Wᴇʟᴄᴏᴍᴇ ᴛᴏ Gʟᴏʙᴀʟ Fɪʟᴛᴇʀs. Gʟᴏʙᴀʟ Fɪʟᴛᴇʀs ᴀʀᴇ ᴛʜᴇ ғɪʟᴛᴇʀs sᴇᴛ ʙʏ ʙᴏᴛ ᴀᴅᴍɪɴs ᴡʜɪᴄʜ ᴡɪʟʟ ᴡᴏʀᴋ ᴏɴ ᴀʟʟ ɢʀᴏᴜᴘs.</b>
     
-AVAILABLE_COMMANDS = 
+AVAILABLE_COMMANDS =
 ‣ /gfilter - <code>To create a global filter.</code>
 ‣ /gfilters - <code>To view all global filters.</code>
 ‣ /delg - <code>To delete a particular global filter.</code>
