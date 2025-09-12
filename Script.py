@@ -269,6 +269,7 @@ Nᴀᴍᴇ - {}"""
 
 <blockquote>‣ <b>ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :</b> {message.from_user.mention}</b></blocquote>
 <blockquote>👑 <b>Oᴡɴᴇʀ :</b> <a href='http://t.me/EL_Pita_Shree'>𝔾𝖍𝖔𝖘𝖙 ♞</a></blockquote>
+"""
 
     ALL_FILTERS = """
 <blockquote>Here are the three types of filters available.</blockquote>
