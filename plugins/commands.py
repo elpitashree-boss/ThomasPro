@@ -115,24 +115,24 @@ async def start(client, message):
                         btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
             if REQUEST_TO_JOIN_MODE == True:
                 if TRY_AGAIN_BTN == True:
-                    text = "<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
+                    text = """<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
 
 💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
 
-✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"
+✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"""
                 else:
                     await db.set_msg_command(message.from_user.id, com=message.command[1])
-                    text = "<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
+                    text = """<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
 
 💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
 
-✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"
+✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"""
             else:
-                text = "<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
+                text = """<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
 
 💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
 
-✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"
+✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"""
             await client.send_message(
                 chat_id=message.from_user.id,
                 text=text,
