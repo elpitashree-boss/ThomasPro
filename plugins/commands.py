@@ -51,12 +51,12 @@ async def start(client, message):
             buttons = [[
     InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
 ],[
-    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ ♞', url=GRP_LNK)
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
 ],[
     InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
     InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
 ],[
-    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ♞', url=CHNL_LNK)
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
 ],[
     InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
 ]]
@@ -64,12 +64,12 @@ async def start(client, message):
             buttons = [[
     InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
 ],[
-    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ ♞', url=GRP_LNK)
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
 ],[
     InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
     InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
 ],[
-    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ♞', url=CHNL_LNK)
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
 ],[
     InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
 ]]
@@ -98,29 +98,41 @@ async def start(client, message):
             await message.reply_text("Make sure Bot is admin in Forcesub channel")
             return
         try:
-            btn = [[InlineKeyboardButton("ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ", url=invite_link.invite_link)]]
+            btn = [[InlineKeyboardButton("「𝐈ɴᴛᴇʀᴡᴏʀʟᴅ」♞", url=invite_link.invite_link)]]
             if message.command[1] != "subscribe":
                 if REQUEST_TO_JOIN_MODE == True:
                     if TRY_AGAIN_BTN == True:
                         try:
                             kk, file_id = message.command[1].split("_", 1)
-                            btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
+                            btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
                         except (IndexError, ValueError):
                             btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
                 else:
                     try:
                         kk, file_id = message.command[1].split("_", 1)
-                        btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
+                        btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
                     except (IndexError, ValueError):
-                        btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                        btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
             if REQUEST_TO_JOIN_MODE == True:
                 if TRY_AGAIN_BTN == True:
-                    text = "**🕵️ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ᴊᴏɪɴ ᴍʏ ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ**"
+                    text = "<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
+
+💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
+
+✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"
                 else:
                     await db.set_msg_command(message.from_user.id, com=message.command[1])
-                    text = "**🕵️ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ᴊᴏɪɴ ᴍʏ ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ**"
+                    text = "<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
+
+💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
+
+✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"
             else:
-                text = "**🕵️ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ᴊᴏɪɴ ᴍʏ ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ**"
+                text = "<blockquote>👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑
+
+💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
+
+✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨</blockquote>"
             await client.send_message(
                 chat_id=message.from_user.id,
                 text=text,
@@ -135,30 +147,30 @@ async def start(client, message):
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         if PREMIUM_AND_REFERAL_MODE == True:
             buttons = [[
-                InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-                InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-            ],[
-                InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('ᴘʀᴇᴍɪᴜᴍ ᴀɴᴅ ʀᴇғᴇʀʀᴀʟ', callback_data='subscription')
-            ],[
-                InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-            ]]
+    InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+],[
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
+],[
+    InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
+    InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+],[
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
+],[
+    InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
+]]
         else:
             buttons = [[
-                InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-                InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-            ],[
-                InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-            ],[
-                InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-            ]]
+    InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+],[
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
+],[
+    InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
+    InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+],[
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
+],[
+    InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
+]]
         if CLONE_MODE == True:
             buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
         reply_markup = InlineKeyboardMarkup(buttons)      
@@ -190,30 +202,30 @@ async def start(client, message):
         else:
             if PREMIUM_AND_REFERAL_MODE == True:
                 buttons = [[
-                    InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                    InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-                ],[
-                    InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-                ],[
-                    InlineKeyboardButton('ᴘʀᴇᴍɪᴜᴍ ᴀɴᴅ ʀᴇғᴇʀʀᴀʟ', callback_data='subscription')
-                ],[
-                    InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                ]]
+    InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+],[
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
+],[
+    InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
+    InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+],[
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
+],[
+    InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
+]]
             else:
                 buttons = [[
-                    InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                    InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-                ],[
-                    InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-                ],[
-                    InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                ]]
+    InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+],[
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
+],[
+    InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
+    InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+],[
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
+],[
+    InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
+]]
             if CLONE_MODE == True:
                 buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
             reply_markup = InlineKeyboardMarkup(buttons)
