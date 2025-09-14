@@ -119,14 +119,16 @@ async def start(client, message):
                     url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}"
                 )])
 
-            await message.reply_text(
-                "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
-                reply_markup=InlineKeyboardMarkup(buttons)
-            )
-            return
-                invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
-        except Exception as e:
-            print(e)
+            try:
+    await message.reply_text(
+        "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
+        reply_markup=InlineKeyboardMarkup(buttons)
+    )
+    return
+else:
+    invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
+except Exception as e:
+    print(e)
             await message.reply_text("Make sure Bot is admin in Forcesub channel")
             return
         try:
