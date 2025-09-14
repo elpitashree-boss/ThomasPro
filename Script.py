@@ -3,18 +3,18 @@
 # Ask Doubt on telegram @KingVJ01
 
 class script(object):
-    START_TXT = """<blockquote>🙋🏻‍♂️ Hᴇʏ... {} 😇</blockquote>
+    START_TXT = """<blockquote>🙋🏻‍♂️ Hey {} 😇</blockquote>
 
-○ 𝖨'𝗆 𝖯𝗈𝗐𝖾𝗋𝖿𝗎𝗅 𝖡𝗈𝗍 𝖸𝗈𝗎 𝖢𝖺𝗇 𝖴𝗌𝖾 𝖬𝖾 𝖠𝗌 A 𝖠𝗎𝗍𝗈-𝖿𝗂𝗅𝗍𝖾𝗋 𝗂𝗇 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 !!
+○ I'm a Powerful Auto-Filter Bot you can use in your Group !!  
 
-<blockquote>𝖩𝗎𝗌𝗍 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 𝖠𝗌 𝖠𝖽𝗆𝗂𝗇, 
-𝖳𝗁𝖺𝗍𝗌 𝖠𝗅𝗅, I 𝗐𝗂𝗅𝗅 𝖯𝗋𝗈𝗏𝗂𝖽𝖾 𝖬𝗈𝗏𝗂𝖾𝗌 𝖳𝗁𝖾𝗋𝖾...🤓</blockquote>
+<blockquote>✨ Just add me as <b>Admin</b> in your group,  
+and I’ll provide Movies & Series there... 🤓</blockquote>
 
-<blockquote>! Yᴏᴜ Cᴀɴ Sᴇᴀʀᴄʜ ʜᴇʀᴇ ɪɴ PM ᴀs ᴡᴇʟʟ 😉
-‣ Sɪᴍᴘʟʏ sᴇɴᴅ ᴍᴏᴠɪᴇ|sᴇʀɪᴇs ɴᴀᴍᴇ...😉</blockquote>
+<blockquote>🔍 You can also search in PM,  
+‣ Just send me the Movie | Series name 😉</blockquote>
 
-<blockquote>😎 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 
-⚡<a href='http://t.me/EL_Pita_Shree'>𝔾𝖍𝖔𝖘𝖙 ♞ </a></blockquote>"""
+<blockquote>⚡ Powered by  
+<a href='http://t.me/EL_Pita_Shree'>𝔾𝖍𝖔𝖘𝖙 ♞</a></blockquote>"""
 
     CLONE_START_TXT = """<b><blockquote>ʜᴇʟʟᴏ {}, ᴍʏ ɴᴀᴍᴇ <a href=https://t.me/{}>{}</a></blockquote>
     
@@ -254,10 +254,10 @@ Nᴀᴍᴇ - {}"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """<blockquote>━━━━━━━━━━━━━━</blockquote>
-<blockquote>📄 {file_name}</blockquote>
+<blockquote>‣ {file_name}</blockquote>
 <blockquote>━━━━━━━━━━━━━━</blockquote>
-<blockquote>👤 Uploaded by: <a href='http://t.me/EL_Pita_Shree'>𝔾𝖍𝖔𝖘𝖙 ♞</a></blockquote>
-<blockquote>🔗 Join: <a href='http://t.me/Interworld_backup'>𝐈ɴᴛᴇʀᴡᴏʀʟᴅ ♞</a></blockquote>
+<blockquote>‣ Uploaded by: <a href='http://t.me/EL_Pita_Shree'>𝔾𝖍𝖔𝖘𝖙 ♞</a></blockquote>
+<blockquote>‣ Join: <a href='http://t.me/Interworld_backup'>𝐈ɴᴛᴇʀᴡᴏʀʟᴅ ♞</a></blockquote>
 <blockquote>💾 Size: {file_size}</blockquote>
 <blockquote>━━━━━━━━━━━━━━</blockquote>
 """ 
