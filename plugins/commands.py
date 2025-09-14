@@ -92,7 +92,7 @@ async def start(client, message):
         for channel in AUTH_CHANNEL:
             try:
                 member = await client.get_chat_member(channel, message.from_user.id)
-            if member.status not in ("member", "administrator", "creator"):
+                if member.status not in ("member", "administrator", "creator"):
                 not_joined.append(channel)
         except:
             not_joined.append(channel)
