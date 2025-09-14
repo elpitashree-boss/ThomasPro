@@ -88,43 +88,37 @@ async def start(client, message):
         return
 
     if AUTH_CHANNEL:
-        not_joined = []
-        for channel in AUTH_CHANNEL:
-            try:
-                member = await client.get_chat_member(int(channel), message.from_user.id)
-                if member.status not in ("member", "administrator", "creator"):
-                    not_joined.append(channel)
-            except Exception as e:
-                print(f"Error checking {channel}: {e}")
+    not_joined = []
+    for channel in AUTH_CHANNEL:
+        try:
+            member = await client.get_chat_member(channel, message.from_user.id)
+            if member.status not in ("member", "administrator", "creator"):
                 not_joined.append(channel)
+        except:
+            not_joined.append(channel)
 
-        if not_joined:
-            buttons = []
-            for ch in not_joined:
-                try:
-                    if REQUEST_TO_JOIN_MODE:
-                        invite_link = await client.create_chat_invite_link(chat_id=int(ch), creates_join_request=True)
-                    else:
-                        invite_link = await client.create_chat_invite_link(int(ch))
-
-                    buttons.append([InlineKeyboardButton("📢 Join Channel", url=invite_link.invite_link)])
-                except Exception as e:
-                    print(f"Error creating invite link for {ch}: {e}")
-                    await message.reply_text("Make sure Bot is admin in Forcesub channel")
-                    return
-
-            if len(message.command) > 1 and message.command[1] != "subscribe":
-                buttons.append([InlineKeyboardButton(
-                    "↻ Try Again",
-                    url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}"
-                )])
-
+    if not_joined:  # join nahi kiya
+        btn = []
+        for ch in not_joined:
             try:
-                await message.reply_text(
-        "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
-        reply_markup=InlineKeyboardMarkup(buttons)
-    )
-                return
+                link = await client.create_chat_invite_link(ch)
+                chat = await client.get_chat(ch)
+                btn.append([InlineKeyboardButton(f"✨ Join {chat.title}", url=link.invite_link)])
+            except:
+                pass
+
+        # 🔁 Try Again button
+        try:
+            kk, file_id = message.command[1].split("_", 1)
+            btn.append([InlineKeyboardButton("↻ Try Again", callback_data=f"checksub#{kk}#{file_id}")])
+        except (IndexError, ValueError):
+            btn.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+
+        await message.reply_text(
+            "🚨 Access Restricted!\n\n✨ Please join all required channels below to unlock premium features 👇",
+            reply_markup=InlineKeyboardMarkup(btn)
+        )
+        return  # 🚨 Yahin se ruk jao, file abhi mat do
             except Exception as e:
                 print(e)
             await message.reply_text("Make sure Bot is admin in Forcesub channel")
