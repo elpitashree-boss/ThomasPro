@@ -124,7 +124,7 @@ async def start(client, message):
         "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
         reply_markup=InlineKeyboardMarkup(buttons)
     )
-            return
+                 return
 except Exception as e:
     print(e)
             await message.reply_text("Make sure Bot is admin in Forcesub channel")
