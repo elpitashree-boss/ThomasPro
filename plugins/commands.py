@@ -89,11 +89,10 @@ async def start(client, message):
     
     @Client.on_message(filters.command("start") & filters.incoming)
 async def start_handler(client, message):
-    # Make sure AUTH_CHANNEL is a list of chat IDs
-    if AUTH_CHANNEL:
-        not_joined = []
+    # Always define not_joined first
+    not_joined = []
 
-        # Check which channels the user hasn't joined
+    if AUTH_CHANNEL:
         for channel in AUTH_CHANNEL:
             try:
                 member = await client.get_chat_member(channel, message.from_user.id)
@@ -127,7 +126,6 @@ async def start_handler(client, message):
                 url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}"
             )])
 
-        # Send premium access message
         await message.reply_text(
             "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
             reply_markup=InlineKeyboardMarkup(buttons)
