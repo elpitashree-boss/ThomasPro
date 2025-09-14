@@ -96,8 +96,9 @@ async def start(client, message):
             member = await client.get_chat_member(channel, message.from_user.id)
             if member.status not in ("member", "administrator", "creator"):
                 not_joined.append(channel)
-        except:
+        except Exception as e:
             # If something goes wrong (like bot not in channel), mark as not joined
+            print(f"Error checking {channel}: {e}")
             not_joined.append(channel)
 
 # If user hasn't joined all required channels
@@ -117,16 +118,17 @@ if not_joined:
 
     # Add 'Try Again' button if needed
     if len(message.command) > 1 and message.command[1] != "subscribe":
-        buttons.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+        buttons.append([InlineKeyboardButton(
+            "↻ Try Again", 
+            url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}"
+        )])
 
+    # Send the restricted access message with buttons
     await message.reply_text(
         "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
         reply_markup=InlineKeyboardMarkup(buttons)
     )
-    return,
-            reply_markup=InlineKeyboardMarkup(buttons)
-        )
-        return
+    return
             else:
                 invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except Exception as e:
