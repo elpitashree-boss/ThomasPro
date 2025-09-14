@@ -136,35 +136,31 @@ async def start(client, message):
                     if TRY_AGAIN_BTN == True:
                         try:
                             kk, file_id = message.command[1].split("_", 1)
-                            btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
+                            btn.append([InlineKeyboardButton("↻ Try Again", callback_data=f"checksub#{kk}#{file_id}")])
                         except (IndexError, ValueError):
-                            btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                            btn.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
                 else:
                     try:
                         kk, file_id = message.command[1].split("_", 1)
-                        btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
+                        btn.append([InlineKeyboardButton("↻ Try Again", callback_data=f"checksub#{kk}#{file_id}")])
                     except (IndexError, ValueError):
-                        btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                        btn.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+
             if REQUEST_TO_JOIN_MODE == True:
                 if TRY_AGAIN_BTN == True:
-                    text = """> 👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑  
->  
-> 💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
->  
-> ✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨"""
+                    text = """🚨 Access Restricted!  
+
+✨ To unlock **premium features**, please join the required channel(s) below and then click **Try Again** 👇"""
                 else:
                     await db.set_msg_command(message.from_user.id, com=message.command[1])
-                    text = """> 👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑  
->  
-> 💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
->  
-> ✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨"""
+                    text = """🚨 Access Restricted!  
+
+✨ To unlock **premium features**, please join the required channel(s) below and then click **Try Again** 👇"""
             else:
-                text = """> 👑 ᴏɴʟʏ ғᴏʀ ᴘʀɪᴠɪʟᴇɢᴇᴅ 👑  
->  
-> 💠 Fɪʀsᴛ Jᴏɪɴ ᴛʜᴇ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💠  
->  
-> ✨ Rᴇꜱᴘᴇᴄᴛ Tʜᴇ Pʀɪᴏʀɪᴛʏ ✨"""
+                text = """🚨 Access Restricted!  
+
+✨ To unlock **premium features**, please join the required channel(s) below and then click **Try Again** 👇"""
+
             await client.send_message(
                 chat_id=message.from_user.id,
                 text=text,
@@ -174,7 +170,7 @@ async def start(client, message):
             return
         except Exception as e:
             print(e)
-            return await message.reply_text("something wrong with force subscribe.")
+            return await message.reply_text("⚠️ Something went wrong with Force Subscribe.")
             
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         if PREMIUM_AND_REFERAL_MODE == True:
