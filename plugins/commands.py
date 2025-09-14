@@ -125,7 +125,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(buttons)
     )
                 return
-except Exception as e:
+            except Exception as e:
     print(e)
             await message.reply_text("Make sure Bot is admin in Forcesub channel")
             return
