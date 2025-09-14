@@ -87,74 +87,40 @@ async def start(client, message):
         )
         return
 
-    if AUTH_CHANNEL:
-        not_joined = []
-        for channel in AUTH_CHANNEL:
-            try:
-                member = await client.get_chat_member(channel, message.from_user.id)
-                if member.status not in ("member", "administrator", "creator"):
-                    not_joined.append(channel)
-            except:
-                not_joined.append(channel)
-
-    if not_joined:  # join nahi kiya
-        btn = []
-        for ch in not_joined:
-            try:
-                link = await client.create_chat_invite_link(ch)
-                chat = await client.get_chat(ch)
-                btn.append([InlineKeyboardButton(f"✨ Join {chat.title}", url=link.invite_link)])
-            except:
-                pass
-
-        # 🔁 Try Again button
+        if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
-            kk, file_id = message.command[1].split("_", 1)
-            btn.append([InlineKeyboardButton("↻ Try Again", callback_data=f"checksub#{kk}#{file_id}")])
-        except (IndexError, ValueError):
-            btn.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
-
-        await message.reply_text(
-            "🚨 Access Restricted!\n\n✨ Please join all required channels below to unlock premium features 👇",
-            reply_markup=InlineKeyboardMarkup(btn)
-        )
-        return  # 🚨 Yahin se ruk jao, file abhi mat do
-            except Exception as e:
-                print(e)
+            if REQUEST_TO_JOIN_MODE == True:
+                invite_link = await client.create_chat_invite_link(chat_id=(int(AUTH_CHANNEL)), creates_join_request=True)
+            else:
+                invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
+        except Exception as e:
+            print(e)
             await message.reply_text("Make sure Bot is admin in Forcesub channel")
             return
         try:
-            btn = [[InlineKeyboardButton("「𝐈ɴᴛᴇʀᴡᴏʀʟᴅ」♞", url=invite_link.invite_link)]]
+            btn = [[InlineKeyboardButton("ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ", url=invite_link.invite_link)]]
             if message.command[1] != "subscribe":
                 if REQUEST_TO_JOIN_MODE == True:
                     if TRY_AGAIN_BTN == True:
                         try:
                             kk, file_id = message.command[1].split("_", 1)
-                            btn.append([InlineKeyboardButton("↻ Try Again", callback_data=f"checksub#{kk}#{file_id}")])
+                            btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
                         except (IndexError, ValueError):
-                            btn.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                            btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
                 else:
                     try:
                         kk, file_id = message.command[1].split("_", 1)
-                        btn.append([InlineKeyboardButton("↻ Try Again", callback_data=f"checksub#{kk}#{file_id}")])
+                        btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", callback_data=f"checksub#{kk}#{file_id}")])
                     except (IndexError, ValueError):
-                        btn.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
-
+                        btn.append([InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
             if REQUEST_TO_JOIN_MODE == True:
                 if TRY_AGAIN_BTN == True:
-                    text = """🚨 Access Restricted!  
-
-✨ To unlock **premium features**, please join the required channel(s) below and then click **Try Again** 👇"""
+                    text = "**🕵️ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ᴊᴏɪɴ ᴍʏ ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ**"
                 else:
                     await db.set_msg_command(message.from_user.id, com=message.command[1])
-                    text = """🚨 Access Restricted!  
-
-✨ To unlock **premium features**, please join the required channel(s) below and then click **Try Again** 👇"""
+                    text = "**🕵️ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ᴊᴏɪɴ ᴍʏ ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ**"
             else:
-                text = """🚨 Access Restricted!  
-
-✨ To unlock **premium features**, please join the required channel(s) below and then click **Try Again** 👇"""
-
+                text = "**🕵️ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ᴊᴏɪɴ ᴍʏ ʙᴀᴄᴋᴜᴘ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ**"
             await client.send_message(
                 chat_id=message.from_user.id,
                 text=text,
