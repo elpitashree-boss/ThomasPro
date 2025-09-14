@@ -113,7 +113,8 @@ async def start_handler(client, message):
                 buttons.append([InlineKeyboardButton("📢 Join Channel", url=invite_link.invite_link)])
             except Exception as e:
                 print(f"Error creating invite link for {ch}: {e}")
-                pass
+                await message.reply_text("Make sure Bot is admin in Forcesub channel")
+                return
 
         if len(message.command) > 1 and message.command[1] != "subscribe":
             buttons.append([InlineKeyboardButton(
