@@ -88,7 +88,7 @@ async def start(client, message):
         return
     
     @Client.on_message(filters.command("start") & filters.incoming)
-async def start_handler(client, message):
+async def start(client, message):
     # Always define not_joined first
     not_joined = []
 
