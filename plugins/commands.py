@@ -120,7 +120,7 @@ async def start(client, message):
                 )])
 
             try:
-    await message.reply_text(
+                await message.reply_text(
         "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
         reply_markup=InlineKeyboardMarkup(buttons)
     )
