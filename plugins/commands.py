@@ -126,7 +126,7 @@ async def start(client, message):
     )
                 return
             except Exception as e:
-    print(e)
+                print(e)
             await message.reply_text("Make sure Bot is admin in Forcesub channel")
             return
         try:
