@@ -88,32 +88,42 @@ async def start(client, message):
         return
     
     if AUTH_CHANNEL:
-        not_joined = []
-        for channel in AUTH_CHANNEL:
-            try:
+    not_joined = []
+
+    # Check which channels the user hasn't joined
+    for channel in AUTH_CHANNEL:
+        try:
             member = await client.get_chat_member(channel, message.from_user.id)
             if member.status not in ("member", "administrator", "creator"):
                 not_joined.append(channel)
         except:
+            # If something goes wrong (like bot not in channel), mark as not joined
             not_joined.append(channel)
 
-    if not_joined:
-        buttons = []
-        for ch in not_joined:
-            try:
-                if REQUEST_TO_JOIN_MODE == True:
-                    invite_link = await client.create_chat_invite_link(chat_id=ch, creates_join_request=True)
-                else:
-                    invite_link = await client.create_chat_invite_link(ch)
-                buttons.append([InlineKeyboardButton("📢 Join Channel", url=invite_link.invite_link)])
-            except Exception as e:
-                print(e)
+# If user hasn't joined all required channels
+if not_joined:
+    buttons = []
 
-        if message.command[1] != "subscribe":
-            buttons.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+    for ch in not_joined:
+        try:
+            if REQUEST_TO_JOIN_MODE:
+                invite_link = await client.create_chat_invite_link(chat_id=ch, creates_join_request=True)
+            else:
+                invite_link = await client.create_chat_invite_link(ch)
 
-        await message.reply_text(
-            "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
+            buttons.append([InlineKeyboardButton("📢 Join Channel", url=invite_link.invite_link)])
+        except Exception as e:
+            print(f"Error creating invite link for {ch}: {e}")
+
+    # Add 'Try Again' button if needed
+    if len(message.command) > 1 and message.command[1] != "subscribe":
+        buttons.append([InlineKeyboardButton("↻ Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+
+    await message.reply_text(
+        "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
+        reply_markup=InlineKeyboardMarkup(buttons)
+    )
+    return,
             reply_markup=InlineKeyboardMarkup(buttons)
         )
         return
