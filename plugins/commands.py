@@ -87,48 +87,45 @@ async def start(client, message):
         )
         return
     
+    @Client.on_message(filters.command("start") & filters.incoming)
+async def start_handler(client, message):
     if AUTH_CHANNEL:
-    not_joined = []
+        not_joined = []
 
-    # Check which channels the user hasn't joined
-    for channel in AUTH_CHANNEL:
-        try:
-            member = await client.get_chat_member(channel, message.from_user.id)
-            if member.status not in ("member", "administrator", "creator"):
+        for channel in AUTH_CHANNEL:
+            try:
+                member = await client.get_chat_member(channel, message.from_user.id)
+                if member.status not in ("member", "administrator", "creator"):
+                    not_joined.append(channel)
+            except Exception as e:
+                print(f"Error checking {channel}: {e}")
                 not_joined.append(channel)
-        except Exception as e:
-            # If something goes wrong (like bot not in channel), mark as not joined
-            print(f"Error checking {channel}: {e}")
-            not_joined.append(channel)
 
-# If user hasn't joined all required channels
-if not_joined:
-    buttons = []
+    if not_joined:
+        buttons = []
+        for ch in not_joined:
+            try:
+                if REQUEST_TO_JOIN_MODE:
+                    invite_link = await client.create_chat_invite_link(chat_id=ch, creates_join_request=True)
+                else:
+                    invite_link = await client.create_chat_invite_link(ch)
 
-    for ch in not_joined:
-        try:
-            if REQUEST_TO_JOIN_MODE:
-                invite_link = await client.create_chat_invite_link(chat_id=ch, creates_join_request=True)
-            else:
-                invite_link = await client.create_chat_invite_link(ch)
+                buttons.append([InlineKeyboardButton("📢 Join Channel", url=invite_link.invite_link)])
+            except Exception as e:
+                print(f"Error creating invite link for {ch}: {e}")
+                pass
 
-            buttons.append([InlineKeyboardButton("📢 Join Channel", url=invite_link.invite_link)])
-        except Exception as e:
-            print(f"Error creating invite link for {ch}: {e}")
+        if len(message.command) > 1 and message.command[1] != "subscribe":
+            buttons.append([InlineKeyboardButton(
+                "↻ Try Again",
+                url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}"
+            )])
 
-    # Add 'Try Again' button if needed
-    if len(message.command) > 1 and message.command[1] != "subscribe":
-        buttons.append([InlineKeyboardButton(
-            "↻ Try Again", 
-            url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}"
-        )])
-
-    # Send the restricted access message with buttons
-    await message.reply_text(
-        "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
-        reply_markup=InlineKeyboardMarkup(buttons)
-    )
-    return
+        await message.reply_text(
+            "<blockquote>🚨 Access Restricted!\n\n✨ To unlock premium features, please join all the required channels below 👇</blockquote>",
+            reply_markup=InlineKeyboardMarkup(buttons)
+        )
+        return
             else:
                 invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except Exception as e:
