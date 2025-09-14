@@ -93,9 +93,9 @@ async def start(client, message):
             try:
                 member = await client.get_chat_member(channel, message.from_user.id)
                 if member.status not in ("member", "administrator", "creator"):
-                not_joined.append(channel)
+                    not_joined.append(channel)
         except:
-            not_joined.append(channel)
+                not_joined.append(channel)
 
     if not_joined:  # join nahi kiya
         btn = []
