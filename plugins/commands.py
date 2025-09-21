@@ -27,7 +27,7 @@ async def start(client, message):
     except:
         pass
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-                    buttons = [[
+            buttons = [[
     InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
 ],[
     InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
