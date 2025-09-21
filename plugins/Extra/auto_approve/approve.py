@@ -63,31 +63,31 @@ async def auto_approve(client, message: ChatJoinRequest):
                     return 
         else:
             if PREMIUM_AND_REFERAL_MODE == True:
-                buttons = [[
-                    InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                    InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-                ],[
-                    InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-                ],[
-                    InlineKeyboardButton('ᴘʀᴇᴍɪᴜᴍ ᴀɴᴅ ʀᴇғᴇʀʀᴀʟ', callback_data='subscription')
-                ],[
-                    InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                ]]
+                            buttons = [[
+    InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+],[
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
+],[
+    InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
+    InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+],[
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
+],[
+    InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
+]]
             else:
-                buttons = [[
-                    InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('ᴇᴀʀɴ ᴍᴏɴᴇʏ', callback_data="shortlink_info"),
-                    InlineKeyboardButton('ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
-                ],[
-                    InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-                ],[
-                    InlineKeyboardButton('ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                ]]
+                            buttons = [[
+    InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ Gʀᴘ ☠️', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+],[
+    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴘ 📽️', url=GRP_LNK)
+],[
+    InlineKeyboardButton('𝐇𝐄𝐋𝐏', callback_data='help'),
+    InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about')
+],[
+    InlineKeyboardButton('Bᴀᴄᴋᴜᴘ ⚕️', url=CHNL_LNK)
+],[
+    InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ☠️', url='https://t.me/EL_Pita_Shree')
+]]
             if CLONE_MODE == True:
                 buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
             reply_markup = InlineKeyboardMarkup(buttons)
