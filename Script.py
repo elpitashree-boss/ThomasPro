@@ -257,7 +257,7 @@ Nᴀᴍᴇ - {}"""
 <blockquote>‣ {file_name}</blockquote>
 <blockquote>━━━━━━━━━━━━━━</blockquote>
 <blockquote>‣ Uploaded by: <a href='http://t.me/EL_Pita_Shree'>𝔾𝖍𝖔𝖘𝖙 ♞</a></blockquote>
-<blockquote>‣ Join: <a href='http://t.me/Interworld_backup'>𝐈ɴᴛᴇʀᴡᴏʀʟᴅ ♞</a></blockquote>
+<blockquote>‣ Join: <a href='http://t.me/Dear_Batman'>𝐈ɴᴛᴇʀᴡᴏʀʟᴅ ♞</a></blockquote>
 <blockquote>‣ Size: {file_size}</blockquote>
 <blockquote>━━━━━━━━━━━━━━</blockquote>
 """ 
